@@ -18,6 +18,9 @@ export default {
       longitude: 0
     }
   },
+  created() {
+    this.getCoords();
+  },
   methods: {
     getCoords() {
       if (navigator.geolocation) {
