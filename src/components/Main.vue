@@ -26,8 +26,9 @@ export default {
       if (navigator.geolocation) {
         const _this = this;
         navigator.geolocation.getCurrentPosition(position => {
-          Vue.set(_this, 'latitude', position.coords.latitude);
-          Vue.set(_this, 'longitude', position.coords.latitude);
+          console.log(position.coords);
+          _this.$set(_this, 'latitude', position.coords.latitude);
+          _this.$set(_this, 'longitude', position.coords.latitude);
         });
       }
     }
