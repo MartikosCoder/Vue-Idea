@@ -11,20 +11,26 @@ export default {
   data() {
     return {
       latitude: 0,
-      longitude: 0
+      longitude: 0,
+      watchCoords: null
     }
   },
   created() {
     this.getCoords();
   },
+  beforeDestroy() {
+	   clearInterval(this.watchCoords);
+  },
   methods: {
     getCoords() {
       if (navigator.geolocation) {
         const _this = this;
-        navigator.geolocation.getCurrentPosition(position => {
-          _this.$set(_this, 'latitude', position.coords.latitude);
-          _this.$set(_this, 'longitude', position.coords.longitude);
-        });
+        _this.watchCoords = setInterval(() => {
+          navigator.geolocation.getCurrentPosition(position => {
+            _this.$set(_this, 'latitude', position.coords.latitude);
+            _this.$set(_this, 'longitude', position.coords.longitude);
+          });
+        }, 1000);
       }
     }
   }
