@@ -28,7 +28,7 @@ export default {
         navigator.geolocation.getCurrentPosition(position => {
           console.log(position.coords);
           _this.$set(_this, 'latitude', position.coords.latitude);
-          _this.$set(_this, 'longitude', position.coords.latitude);
+          _this.$set(_this, 'longitude', position.coords.longitude);
         });
       }
     }
