@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Main msg="Test!"/>
+    <Main />
   </div>
 </template>
 

@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    {{ msg }}
     <div class="latitude">Latitude: {{ latitude }}</div>
     <div class="longitude">Longitude: {{ longitude }}</div>
   </div>
@@ -9,9 +8,6 @@
 <script>
 export default {
   name: 'Main',
-  props: {
-    msg: String
-  },
   data() {
     return {
       latitude: 0,
@@ -26,7 +22,6 @@ export default {
       if (navigator.geolocation) {
         const _this = this;
         navigator.geolocation.getCurrentPosition(position => {
-          console.log(position.coords);
           _this.$set(_this, 'latitude', position.coords.latitude);
           _this.$set(_this, 'longitude', position.coords.longitude);
         });
