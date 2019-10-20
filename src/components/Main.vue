@@ -28,7 +28,7 @@ export default {
         _this.watchCoords = setInterval(() => {
           navigator.geolocation.getCurrentPosition(position => {
             _this.$set(_this, 'latitude', position.coords.latitude.toFixed(2));
-            _this.$set(_this, 'longitude', position.coords.latitude.toFixed(2));
+            _this.$set(_this, 'longitude', position.coords.longitude.toFixed(2));
           });
         }, 1000);
       }
